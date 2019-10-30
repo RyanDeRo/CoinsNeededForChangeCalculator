@@ -1,0 +1,43 @@
+quarter = 25
+dime = 10
+nickel = 5
+penny = 1
+
+cost_of_item = (float(input('What is the cost of the item? ')) * 100)
+
+print('Your item costs ' + str(cost_of_item))
+
+
+money_paid = (float(input('How much money did the customer give you? ')) * 100)
+
+if cost_of_item == money_paid:
+    print("Exact payment recieved, no change needed.") # TODO: break
+elif cost_of_item > money_paid:
+    print("The customer did not pay enough.") # TODO: break
+else:
+    change_needed = money_paid - cost_of_item
+
+print('The customer needs ' + (str(change_needed)) + ' in change.')
+
+quarters_needed = change_needed // quarter
+remaining_change_needed1 = change_needed % quarter
+
+dimes_needed = remaining_change_needed1 // dime
+remaining_change_needed2 = remaining_change_needed1 % dime
+
+nickels_needed = remaining_change_needed2 // nickel
+remaining_change_needed3 = remaining_change_needed2 % nickel
+
+pennies_needed = remaining_change_needed3 // penny
+remaining_change_needed4 = remaining_change_needed3 % penny
+
+print('Quarters needed = ' + str(quarters_needed))
+
+print('Dimes needed = ' + str(dimes_needed))
+
+print('Nickels needed = ' + str(nickels_needed))
+
+print('Pennies needed = ' + str(pennies_needed))
+
+
+print('Still needs ' + str(remaining_change_needed4))
